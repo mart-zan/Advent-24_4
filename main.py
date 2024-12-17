@@ -20,9 +20,11 @@ def how_many_patterns(pattern, input_text):
     return  number_pattern
 
 if __name__ == '__main__':
+
     # Read and close file
     input_xmas = read_instructions('/home/zanetka/PycharmProjects/Advent_24_4/input.txt')
-    pattern_xmas = 'XMAS'
+    pattern = 'XMAS'
+    pattern_length = 4
 
     # Diagonal
     input_rows = input_xmas.strip().split('\n')  # Split text into each row
@@ -40,8 +42,6 @@ if __name__ == '__main__':
         (1, -1),  # Diagonal down-left
         (-1, 1) ]  # Diagonal up-right
 
-    word_length = 4
-    pattern = 'XMAS'
     # Check every cell in the grid
     for i in range(N):
         for j in range(L_row):
@@ -49,7 +49,7 @@ if __name__ == '__main__':
             for dx, dy in directions:
                 # Check if we can find the word in this direction
                 found = True
-                for k in range(word_length):
+                for k in range(pattern_length):
                     ni, nj = i + k * dx, j + k * dy
                     # Check if the indices are out of bounds
                     if not (0 <= ni < N and 0 <= nj < L_row):
