@@ -48,6 +48,8 @@ if __name__ == '__main__':
     print(read_rows)
     # for i in 1
     # diagonal =
-
+    diagonal_str = []
+    for i, row in enumerate(read_rows):
+        
     print(horizontal)
     print(horizontal_bw)
