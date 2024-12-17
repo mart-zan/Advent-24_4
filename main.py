@@ -56,21 +56,33 @@ if __name__ == '__main__':
     # print(input_rows[0])
     # print('rozmery: N, L ... ', N, L_row )
     rows = input_rows
-    for i, row in enumerate(input_rows):
+    for i, row in N:
+       if i is 140:
+            break
         j = i
         k = N-i-1
-        for l in range(0, L_row):
+        for l in range(0, L_row-1):
+            print(j)
+            print(i + l)
+            print('--')
             diagonal_str += str(rows[j][i+l])
+
             # print(k)
             # print(L_row-i-l-1)
             diagonal_str_bw += str(rows[k][L_row-i-l-1])
-            j = j + 1
+
             k = k - 1
+            j = j + 1
             # print(diagonal_str)
             # print(i)
             # print(j)
         # diagonal_str = rows[1][] + rows[2][2] + ... + row[i][N]
         # diagonal_str = rows[0][0] + rows[1][1] + ... + row[i+N][N]
-
+    diagonal = how_many_patterns(diagonal_str, pattern_xmas)
+    diagonal_bw = how_many_patterns(diagonal_str_bw, pattern_xmas)
     print(horizontal)
     print(horizontal_bw)
+    print(diagonal)
+    print(diagonal_bw)
+    all_xmas = horizontal+horizontal_bw+diagonal+diagonal_bw
+    print('vysledek ... ',str(all_xmas))
